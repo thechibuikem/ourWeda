@@ -20,7 +20,7 @@ const fetchUserLocation = async (): Promise<void> => {
     );
   }
 };
-// fetchUserLocation();
+fetchUserLocation();
 
 export interface WeatherResponse {
   temperature: number;
@@ -45,16 +45,7 @@ return "untracked"
 
 // creating and exporting function that would trigger api call and retreieve weather
 export const getWeather = async (): Promise<WeatherResponse> => {
-
-
-
   try {
-
-        // Get location data first
-    if (!lat || !lon) {
-      [lat, lon] = await getLocation();
-    }
-
     const url = `${WEATHER_API_BASE_URL}lat=${lat}&lon=${lon}&appid=${OPEN_API_KEY}`;
     const response = await fetch(url);
     if (!response.ok) {
