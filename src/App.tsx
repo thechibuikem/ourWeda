@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Preloader from "./pages/Preloader";
+import Preloader from "./pages/preloader";
 import { WeatherProvider } from "./context/WeatherContext";
 import { useState, useEffect } from "react";
 
