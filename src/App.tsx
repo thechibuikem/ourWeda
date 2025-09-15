@@ -1,33 +1,25 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Preloader from "./pages/preloader";
 import { WeatherProvider } from "./context/WeatherContext";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 function App() {
-  const [loading, setLoading] = useState(true);
-
-  // Simulate loading for 2 seconds (you can remove timeout later)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
+// removing preloader from html if react has umnounted
+useEffect(() => {
+  const preloader = document.getElementById("preloader");
+  if (preloader) {
+    preloader.style.display = "none";
+  }
+}, []);
 
   return (
     <WeatherProvider>
-      {loading ? (
-        <Preloader />
-      ) : (
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
             {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
         </Router>
-      )}
     </WeatherProvider>  
   );
 }
