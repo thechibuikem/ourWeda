@@ -9,6 +9,8 @@ let lon: number;
 // importing our open weather api key and url from api
 const OPEN_API_KEY = import.meta.env.VITE_OPEN_WEATHER_KEY;
 const WEATHER_API_BASE_URL = import.meta.env.VITE_OPEN_WEATHER_BASE_URL;
+
+
 const fetchUserLocation = async (): Promise<void> => {
   try {
     [lat, lon] = await getLocation();
@@ -20,7 +22,7 @@ const fetchUserLocation = async (): Promise<void> => {
     );
   }
 };
-fetchUserLocation();
+// fetchUserLocation();
 
 export interface WeatherResponse {
   temperature: number;
@@ -42,7 +44,7 @@ const weatherMapper = (condition: string): WeatherKind  => {
 }
 return "untracked"
 }
-
+await fetchUserLocation()
 // creating and exporting function that would trigger api call and retreieve weather
 export const getWeather = async (): Promise<WeatherResponse> => {
   try {
