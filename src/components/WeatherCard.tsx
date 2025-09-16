@@ -24,12 +24,15 @@ const WeatherCard: FC = () => {
   return (
     <div className="w-full h-full flex sm:flex-row flex-col sm:justify-center  justify-between bg-green-950 rounded-xl text-white gap-y-8 p-4  hover:-translate-y-1 transition-transform cursor-pointer caret-[#ffffff00]">
       {/* combination of weather icon + definition */}
+    
       <figure className="flex flex-col justify-center items-start sm:items-center w-full -mt-10 mr-4">
+{icon? 
         <img
           src={`https://openweathermap.org/img/wn/${icon}@4x.png`}
           className="-ml-8 sm:ml-0"
           alt="cloud showing the current weather condition"
         />
+      :<div className="w-[6rem] bg-red-600 aspect-square"></div>}
         <h2 className="header-font text-4xl text-[#ffffff9f] sm:text-center capitalize">{weather}</h2>
       </figure>
       {/* combination of date+time+locatiob */}
