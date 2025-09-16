@@ -1,46 +1,43 @@
-import { useState, useEffect, type FC, type ReactNode } from "react";
+import {
+  useState,
+  useEffect,
+  useContext,
+  type FC,
+  type ReactNode,
+} from "react";
 import dayjs from "dayjs";
-import { getCityName } from "../utils/getLocation";
-
-
+import { weatherContext } from "../context/WeatherContext";
 
 const DigitalClock: FC = (): ReactNode => {
-// getting and settinh date from day.js
-function getActiveDate(): void {
-  setDate(dayjs().format("ddd DD MMM"));
-  setTime(dayjs().format("HH:mm"));
-}
+  function getActiveDate(): void {
+    setDate(dayjs().format("ddd DD MMM"));
+    setTime(dayjs().format("HH:mm"));
+  }
 
+  // getting and settinh date from day.js
+  const context = useContext(weatherContext);
 
-  // getting users current location
-  const fetchRealTimeCityAndCountry = async (): Promise<void> => {
-    try {
-      const [currentCity, currentCountry] = await getCityName();
-      setCity(currentCity);
-      setCountry(currentCountry);
-    } catch (error) {
-      console.error("Error getting city and country name:", error);
-      setCity("Unknown");
-      setCountry("Location");
-    }
-  };
+    if (!context)
+    throw new Error(
+      "DateCard can't access weather context because it's not inside weather provider "
+    );
 
-  const [city, setCity] = useState("");
-  const [country, setCountry] = useState("");
+  const {city,country,setCity,setCountry}= context
+
   const [date, setDate] = useState("");
-  const [time, setTime]= useState("")
-
-  // console.log(fullDate);
+  const [time, setTime] = useState("");
 
   useEffect(() => {
     //calling our function to consume reverseGeoLocation API
-    fetchRealTimeCityAndCountry();
-    getActiveDate()
+    // fetchRealTimeCityAndCountry();
+    getActiveDate();
+    setCity(city);
+    setCountry(country)
     // calling active date and time repeeatedly at intervals and saving the intervalId to a variable
-   const intervalId = setInterval(()=>getActiveDate(),1000);
+    const intervalId = setInterval(() => getActiveDate(), 1000);
 
-   return(()=>clearInterval(intervalId))//deleting interval on dismounting to fix
-   //  memory leak
+    return () => clearInterval(intervalId); //deleting interval on dismounting to fix
+    //  memory leak
   }, []);
 
   // the jsx part of my code

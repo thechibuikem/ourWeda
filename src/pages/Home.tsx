@@ -7,7 +7,7 @@ import WeatherCard from "../components/WeatherCard";
 const Home:FC = () => {
   return (
     <main className="min-h-screen w-full caret-[#ffffff00]">
-      <section className="bg-green-700 w-full h-fit grid grid-cols-1 md:grid-cols-12 md:gap-8 gap-4 md:p-8 p-4">
+      <section className="bg-blue-300 w-full h-fit grid grid-cols-1 md:grid-cols-12 md:gap-8 gap-4 md:p-8 p-4">
         {/* Tips - spans full height of all 3 components - MUST BE FIRST */}
         <div className="md:col-span-3 md:row-span-4 md:col-start-10 md:row-start-1 h-[30vh] md:h-full rounded-xl order-last md:order-first">
           <TipsCard />

@@ -1,4 +1,4 @@
-import { getLocation } from "../utils/getLocation";
+// import { getLocation } from "../utils/getLocation";
 
 import { type WeatherKind,WEATHER_KINDS } from "../context/WeatherContext";
 // consuming the getLocation function I'm pulling in from the getLocation ts file
@@ -6,28 +6,39 @@ import { type WeatherKind,WEATHER_KINDS } from "../context/WeatherContext";
 let lat: number;
 let lon: number;
 
+navigator.geolocation.getCurrentPosition(
+      (position) => {
+        //--extract values from the position object
+         lat = position.coords.latitude;
+         lon = position.coords.longitude;
+      }
+);
+
+
 // importing our open weather api key and url from api
 const OPEN_API_KEY = import.meta.env.VITE_OPEN_WEATHER_KEY;
 const WEATHER_API_BASE_URL = import.meta.env.VITE_OPEN_WEATHER_BASE_URL;
 
 
-const fetchUserLocation = async (): Promise<void> => {
-  try {
-    [lat, lon] = await getLocation();
+// const fetchUserLocation = async (): Promise<void> => {
+//   try {
+//     [lat, lon] = await getLocation();
 
-    console.log([lat, lon]);
-  } catch {
-    throw new Error(
-      "error obtaining latitude and longitude from required getLocation module"
-    );
-  }
-};
+//     console.log([lat, lon]);
+//   } catch {
+//     throw new Error(
+//       "error obtaining latitude and longitude from required getLocation module"
+//     );
+//   }
+// };
 // fetchUserLocation();
 
 export interface WeatherResponse {
   temperature: number;
   condition: WeatherKind;
-  icon: string;
+  country:string;
+  city:string
+  icon: number;
 }
 
 
@@ -44,7 +55,6 @@ const weatherMapper = (condition: string): WeatherKind  => {
 }
 return "untracked"
 }
-await fetchUserLocation()
 // creating and exporting function that would trigger api call and retreieve weather
 export const getWeather = async (): Promise<WeatherResponse> => {
   try {
@@ -52,12 +62,12 @@ export const getWeather = async (): Promise<WeatherResponse> => {
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(
-        "The weather data returned from api was not okay" + response.statusText
+        "The weather data returned from api was not okay " + response.statusText
       );
     }
     const data = await response.json(); //convert response to javascript object notation
 
-    console.log("here's our data: ",data)
+    console.log("here's our data: ", data)
     //after we get the response in json form, it is now data
 
     //targeting the main weather condition
@@ -68,14 +78,18 @@ export const getWeather = async (): Promise<WeatherResponse> => {
     const temperature = data.main.temp;
     //  targetting the icon
     const icon = data.weather[0].icon;
+    const city = data.name;
+    const country = data.sys.country
     // creating the weather response
     console.log("our current condition is:", icon);
-    return {
+    const WeatherResponse =  {
       temperature: temperature,
       condition: condition,
+      country:country,    
+      city:city,
       icon: icon,
     };
-    //returning the whole weather response
+    return WeatherResponse //returning the whole weather response
   } catch (error) {
     console.log("unexpected error occured", error);
     throw error;

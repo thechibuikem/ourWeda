@@ -1,6 +1,5 @@
 import { useEffect, useContext, type FC } from "react";
 import { weatherContext } from "../context/WeatherContext";
-import { getWeather } from "../api/weatherApi";
 import { type WeatherResponse } from "../api/weatherApi";
 import DigitalClock from "./Date+Time+Location";
 
@@ -18,13 +17,9 @@ const WeatherCard: FC = () => {
 
   useEffect(() => {
     // creatng an asynchronous function that assigns
-    const fetchWeather = async () => {
-      const data: WeatherResponse = await getWeather();
-      setWeather(data.condition);
-      setIcon(data.icon);
-    };
 
-    fetchWeather();
+
+
   }, []);
   // the main xml that's being returned on the weather card
   return (
