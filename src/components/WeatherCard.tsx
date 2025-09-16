@@ -1,6 +1,5 @@
 import { useEffect, useContext, type FC } from "react";
 import { weatherContext } from "../context/WeatherContext";
-import { type WeatherResponse } from "../api/weatherApi";
 import DigitalClock from "./Date+Time+Location";
 
 // the main weather card functional component that gets exported to the screen
@@ -13,7 +12,7 @@ const WeatherCard: FC = () => {
     );
 
   // importing or destructuring these state and state functions from context
-  const { weather, setWeather, icon, setIcon } = context;
+  const { weather,icon} = context;
 
   useEffect(() => {
     // creatng an asynchronous function that assigns
