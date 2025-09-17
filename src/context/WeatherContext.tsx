@@ -25,7 +25,7 @@ export type WeatherKind = (typeof WEATHER_KINDS)[number];
 //creating the interface for WeatherContextType
 interface WeatherContextType {
   weather: WeatherKind;
-  icon: number;
+  icon: string;
   loading: boolean;
   city: string;
   country: string;
@@ -33,7 +33,7 @@ interface WeatherContextType {
   setCity: (w: string) => void;
   setLoading: (w: boolean) => void;
   setWeather: (w: WeatherKind) => void;
-  setIcon: (w: number) => void;
+  setIcon: (w: string) => void;
 }
 
 // create the context and export it
@@ -45,7 +45,7 @@ export const weatherContext = createContext<WeatherContextType | undefined>(
 export const WeatherProvider = ({ children }: { children: ReactNode }) => {
   const [weather, setWeather] = useState<WeatherKind>("sunny");
   const [loading, setLoading] = useState(true);
-  const [icon, setIcon] = useState<number>(0);
+  const [icon, setIcon] = useState<string>("");
   const [city,setCity]= useState<string>("city")
   const [country,setCountry]= useState<string>("country")
 
@@ -58,7 +58,7 @@ export const WeatherProvider = ({ children }: { children: ReactNode }) => {
         setCity(data.city)
         setCountry(data.country)
         // saving condition only
-        // setLoading(false);
+        setLoading(false);
       })
       .catch((err) => {
         console.error(err);

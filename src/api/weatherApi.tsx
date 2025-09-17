@@ -38,7 +38,7 @@ export interface WeatherResponse {
   condition: WeatherKind;
   country:string;
   city:string
-  icon: number;
+  icon: string;
 }
 
 
