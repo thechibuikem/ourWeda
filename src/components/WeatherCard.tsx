@@ -1,4 +1,4 @@
-import { useEffect, useContext, type FC } from "react";
+import { useContext, type FC } from "react";
 import { weatherContext } from "../context/WeatherContext";
 import DigitalClock from "./Date+Time+Location";
 
