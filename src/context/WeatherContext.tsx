@@ -22,6 +22,12 @@ export const WEATHER_KINDS = [
 // creating and exporting our weatherKind type variable
 export type WeatherKind = (typeof WEATHER_KINDS)[number];
 
+// create the context and export it
+export const weatherContext = createContext<WeatherContextType | undefined>(
+  undefined
+);
+
+
 //creating the interface for WeatherContextType
 interface WeatherContextType {
   weather: WeatherKind;
@@ -36,10 +42,6 @@ interface WeatherContextType {
   setIcon: (w: string) => void;
 }
 
-// create the context and export it
-export const weatherContext = createContext<WeatherContextType | undefined>(
-  undefined
-);
 
 // here we are creating context provider so use context in children states
 export const WeatherProvider = ({ children }: { children: ReactNode }) => {

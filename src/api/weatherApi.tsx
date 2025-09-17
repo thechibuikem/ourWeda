@@ -1,18 +1,22 @@
 // import { getLocation } from "../utils/getLocation";
 
 import { type WeatherKind,WEATHER_KINDS } from "../context/WeatherContext";
-// consuming the getLocation function I'm pulling in from the getLocation ts file
-// variables that would hold the latitude and longitude
-let lat: number;
-let lon: number;
 
-navigator.geolocation.getCurrentPosition(
+// Create a helper that returns a Promise with coords
+const getLocation = (): Promise<{ lat: number; lon: number }> => {
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(
       (position) => {
-        //--extract values from the position object
-         lat = position.coords.latitude;
-         lon = position.coords.longitude;
-      }
-);
+        resolve({
+          lat: position.coords.latitude,
+          lon: position.coords.longitude,
+        });
+      },
+      (error) => reject(error)
+    );
+  });
+};
+
 
 
 // importing our open weather api key and url from api
@@ -58,6 +62,8 @@ return "untracked"
 // creating and exporting function that would trigger api call and retreieve weather
 export const getWeather = async (): Promise<WeatherResponse> => {
   try {
+
+    const {lat,lon} = await getLocation();//always wait for co-ordinates before fetching
     const url = `${WEATHER_API_BASE_URL}lat=${lat}&lon=${lon}&appid=${OPEN_API_KEY}`;
     const response = await fetch(url);
     if (!response.ok) {
