@@ -4,15 +4,14 @@ import DigitalClock from "./Date+Time+Location";
 
 // the main weather card functional component that gets exported to the screen
 const WeatherCard: FC = () => {
-  // initializing context i.e middle man between us and context.txt
-  const context = useContext(weatherContext);
+ 
+  const context = useContext(weatherContext); // initializing context i.e middle man between us and context.txt
   if (!context)
     throw new Error(
       "WeatherCard can't access weather context because it's not inside weather provider "
     );
 
-  // importing or destructuring these state and state functions from context
-  const { weather, icon } = context;
+  const { weather, icon } = context;  // importing or destructuring these state and state functions from context
 
   // the main xml that's being returned on the weather card
   return (

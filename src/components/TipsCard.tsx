@@ -1,8 +1,40 @@
-import { type FC } from "react";
+import { useContext, useEffect, useState, type FC } from "react";
+import { weatherContext } from "../context/WeatherContext";
 
+// the container holding the tips returned from our backend
 const MainTips: FC = () => {
+  const context = useContext(weatherContext); // create a context instance
+  const [tips, setTips] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(false); // loading state
+  
+  
+  // Check if context exists
+  if (!context) {
+    throw new Error("MainTips must be used within WeatherProvider");
+  }
+
+  const {recommendations,loading} = context
+
+  useEffect(()=>{
+if (isLoading)return
+
+    setTips(recommendations)
+  }
+,[recommendations])
+
+
+
   return (
-    <section className="w-full min:h-[40vh] sm:min-h-[15vh] h-full rounded-sm shadow-md bg-green-900 cursor-arrow hover:-translate-y-1 transition-transform"></section>
+    <section className="w-full min:h-[40vh] sm:min-h-[15vh] h-full rounded-sm shadow-md bg-green-900 cursor-arrow hover:-translate-y-1 transition-transform">
+      {/* generating tips from returned tips from backend  */}
+      {tips.length !== 0 ? (
+        tips.map((tip, index) => <p key={index} className="text-white text-xl p-4">{tip}</p>)
+      ) : (
+        <h1 className="text-white text-2xl text-center mt-12 animate-pulse">
+          Tips are empty mate
+        </h1>
+      )}
+    </section>
   );
 };
 

@@ -6,38 +6,37 @@ import {
   type ReactNode,
 } from "react";
 import dayjs from "dayjs";
-import { weatherContext } from "../context/WeatherContext";
+import { weatherContext } from "../context/WeatherContext";//so we can get city,country and the functions to update them
 
+
+// the whole component housing date, time and location
 const DigitalClock: FC = (): ReactNode => {
+  
+  // function to manipulate the date and time states using day.js
   function getActiveDate(): void {
     setDate(dayjs().format("ddd DD MMM"));
     setTime(dayjs().format("HH:mm"));
   }
-
-  // getting and settinh date from day.js
+  
+  // getting and setting date from day.js
   const context = useContext(weatherContext);
-
-    if (!context)
+  if (!context)
     throw new Error(
-      "DateCard can't access weather context because it's not inside weather provider "
-    );
+  "DateCard can't access weather context because it's not inside weather provider "
+);
 
-  const {city,country,setCity,setCountry}= context
+const { city, country, setCity, setCountry } = context;
 
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
 
   useEffect(() => {
-    //calling our function to consume reverseGeoLocation API
-    // fetchRealTimeCityAndCountry();
-    getActiveDate();
+    getActiveDate(); // set the date and time states 
     setCity(city);
-    setCountry(country)
-    // calling active date and time repeeatedly at intervals and saving the intervalId to a variable
-    const intervalId = setInterval(() => getActiveDate(), 1000);
+    setCountry(country);
+    const intervalId = setInterval(() => getActiveDate(), 1000); // calling active date and time repeeatedly at intervals and saving the intervalId to a variable so we can close it on dismount to close memory leak
 
-    return () => clearInterval(intervalId); //deleting interval on dismounting to fix
-    //  memory leak
+    return () => clearInterval(intervalId); //deleting interval on dismounting to fix memory leak
   }, []);
 
   // the jsx part of my code
