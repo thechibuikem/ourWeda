@@ -71,7 +71,7 @@ export const WeatherProvider = ({ children }: { children: ReactNode }) => {
         setLoading(false); // terminate loading
 
         // send directly to backend (easiest way)
-        const res = await fetch("http://localhost:8000/api/recommend", {
+        const res = await fetch(BACKEND_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
