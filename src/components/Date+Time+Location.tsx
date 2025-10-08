@@ -32,8 +32,8 @@ const { city, country, setCity, setCountry } = context;
 
   useEffect(() => {
     getActiveDate(); // set the date and time states 
-    setCity(city);
-    setCountry(country);
+    setCity(city ?? "");
+    setCountry(country??"");
     const intervalId = setInterval(() => getActiveDate(), 1000); // calling active date and time repeeatedly at intervals and saving the intervalId to a variable so we can close it on dismount to close memory leak
 
     return () => clearInterval(intervalId); //deleting interval on dismounting to fix memory leak
@@ -42,12 +42,12 @@ const { city, country, setCity, setCountry } = context;
   // the jsx part of my code
   return (
     <figure
-      className="flex flex-col sm:items-center justify-center bg-green-900
+      className="flex flex-col sm:items-center justify-center bg-green-600
    shadow-lg w-full p-4 text-right gap-y-4 rounded-sm hover:-translate-y-1 transition-transform"
     >
-      <h3 className="uppercase text-3xl text-[#ffffff9f]">{date}</h3>
-      <h1 className="text-8xl -mt-4">{time}</h1>
-      <h3 className="uppercase text-3xl text-[#ffffff9f]">
+      <h3 className="uppercase md:text-3xl text-2xl text-[#ffffffbf]">{date}</h3>
+      <h1 className="md:text-8xl text-7xl -mt-4 text-[#ffffffe1]">{time}</h1>
+      <h3 className="uppercase md:text-3xl text-2xl text-[#ffffffbf]">
         {city} {country}
       </h3>
     </figure>

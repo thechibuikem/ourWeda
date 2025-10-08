@@ -1,5 +1,19 @@
 @import "tailwindcss";
-
-.header-font{
-  font-family: "Fuzzy Bubbles";
+.font{
+  font-family: "Poppins";
 }
+/* scrollbar irself */
+.tips-wrapper::-webkit-scrollbar{
+  width: 5px;  
+  height: 5px;  
+} 
+
+/* Scrollbar thumb (the draggable part) */
+.tips-wrapper::-webkit-scrollbar-thumb {
+  background: #012205ca;  
+}
+
+.tips-wrapper::-webkit-scrollbar-track{
+  background-color: #ffffff30
+}
+

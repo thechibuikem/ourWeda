@@ -15,10 +15,10 @@ const WeatherCard: FC = () => {
 
   // the main xml that's being returned on the weather card
   return (
-    <div className="w-full h-full flex sm:flex-row flex-col sm:justify-center  justify-between bg-green-950 rounded-xl text-white gap-y-8 p-4  hover:-translate-y-1 transition-transform cursor-pointer caret-[#ffffff00]">
+    <div className="w-full h-full flex sm:flex-row flex-col sm:justify-center  justify-between bg-green-800 rounded-xl text-white gap-y-8 p-4  hover:-translate-y-1 transition-transform cursor-pointer caret-[#ffffff00]">
       {/* combination of weather icon + definition */}
 
-      <figure className="flex flex-col justify-center items-start sm:items-center w-full -mt-10 mr-4">
+      <figure className="flex flex-col justify-center items-start sm:items-center w-full mr-4">
         {/* conditional rendering of cloud  */}
         {icon ? (
           <img
@@ -27,10 +27,10 @@ const WeatherCard: FC = () => {
             alt="cloud showing the current weather condition"
           />
         ) : (
-          <div className="w-[6rem] animate-pulse rounded-sm bg-[#00000076] aspect-square"></div>
+          <div className="w-[4rem] md:w-[6rem] animate-pulse duration-150 rounded-sm bg-[#00000076] aspect-square"></div>
         )}
-        <h2 className="header-font text-4xl text-[#ffffff9f] sm:text-center capitalize">
-          {weather || "loading ..."}
+        <h2 className="header-font text-3xl text-[#ffffff9f] text-center capitalize">
+          {weather || "loading"}
         </h2>
       </figure>
       {/* DateCard*/}

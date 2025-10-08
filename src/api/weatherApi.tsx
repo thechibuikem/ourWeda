@@ -1,8 +1,7 @@
-// import { getLocation } from "../utils/getLocation";
-import { type WeatherKind, WEATHER_KINDS } from "../context/WeatherContext";
-
 // Create a helper that returns a Promise with coords
 const getLocation = (): Promise<{ lat: number; lon: number }> => {
+  
+  // defining promise function getting latitude and longitude we'd use this in our weatherapi call
   return new Promise((resolve, reject) => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -20,29 +19,20 @@ const getLocation = (): Promise<{ lat: number; lon: number }> => {
 const OPEN_API_KEY = import.meta.env.VITE_OPEN_WEATHER_KEY;
 const WEATHER_API_BASE_URL = import.meta.env.VITE_OPEN_WEATHER_BASE_URL;
 
-// fetchUserLocation();
+// creating interface for 
 export interface WeatherResponse {
   temperature: number;
-  condition: WeatherKind;
+  humidity:number
+  windSpeed:number
+  cloudCover:number
+  condition: string;
+  description: string;
   country: string;
   city: string;
   icon: string;
+
 }
 
-//this function takes in the condition provided by Open Weather Api and returns a value that matches our weather kinf
-const weatherMapper = (condition: string): WeatherKind => {
-  // take condition returned by open weather api to lower case
-  const lowerCondition = condition.toLowerCase();
-
-  for (const weather of WEATHER_KINDS) {
-    if (lowerCondition === weather.toLowerCase()) {
-      return weather;
-    }
-    //fallback incase no weather matches
-  }
-  return "untracked";
-};
-// creating and exporting function that would trigger api call and retreieve weather
 export const getWeather = async (): Promise<WeatherResponse> => {
   try {
     const { lat, lon } = await getLocation(); //always wait for co-ordinates before fetching
@@ -54,26 +44,30 @@ export const getWeather = async (): Promise<WeatherResponse> => {
       );
     }
     const data = await response.json(); //convert response to javascript object notation
-
-    console.log("here's our data: ", data); //after we get the response in json form, it is now data
-
-    const condition = weatherMapper(data.weather[0].main); //targeting the main weather condition
-
-    console.log("our current condition is:", condition);
-
-    const temperature = data.main.temp; // targetting the temperature
-
-    const icon = data.weather[0].icon; //  targetting the icon
-    const city = data.name;
-    const country = data.sys.country;
-    // creating the weather response
+//////////////////////////////////////////
+    const temperature = data.main.temp; //temperature
+    const humidity = data.main.humidity//humidity
+    const windSpeed = data.wind.speed//wind speed
+    const cloudCover = data.clouds.all//percentage of cloud cover
+    const condition = data.weather[0].main; //weather condition
+    const description = data.weather[0].description; // weather description
+    const icon = data.weather[0].icon; //  targetting the weather icon
+    const city = data.name;//city name
+    const country = data.sys.country;//country name
+////////////////////////////////////////
+    // creating the response that our weatherapi would return
     const WeatherApiResponse: WeatherResponse = {
       temperature: temperature,
       condition: condition,
+      description: description,
       country: country,
       city: city,
       icon: icon,
+      humidity:humidity,
+      windSpeed:windSpeed,
+      cloudCover:cloudCover,
     };
+////////////////////
     return WeatherApiResponse; //returning the whole weather response
 
     // catching ang errors on fetching the weather
