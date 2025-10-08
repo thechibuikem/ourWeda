@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
@@ -12,6 +13,8 @@ app.add_middleware(
     allow_headers=["*"])
 
 
-# targeting the endpoint our tipscard component talks to on mount
-app.mount("/",
-           StaticFiles(directory="dist",html=True),name="Static")
+# Get path relative to this file
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DIST_PATH = os.path.join(BASE_DIR, "..", "dist")
+
+app.mount("/", StaticFiles(directory=DIST_PATH, html=True), name="Static")
