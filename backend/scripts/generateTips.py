@@ -8,26 +8,31 @@ load_dotenv()
 from pydantic import BaseModel #a model to validate data being sent in from the frontend
 from fastapi.middleware.cors import CORSMiddleware #to allow resource sharing between servers
 
+from google import genai
 import json
 
-from google import genai
 
 # The client gets the API key from the environment variable `GEMINI_API_KEY`.
 client = genai.Client(api_key=os.getenv('GEMINI_API_KEY'))
 
+# generatetips.py
+from fastapi import APIRouter
+
+router = APIRouter()
+
 # 
 
-# model = genai.GenerativeModel('gemini-1.5-pro')
-app = FastAPI() #creating a fast api instance
+# # model = genai.GenerativeModel('gemini-1.5-pro')
+# app = FastAPI() #creating a fast api instance
 
-# allowing react app to connect to my 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# # allowing react app to connect to my 
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["*"],
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 
 # creating a baseModel to validate data input
 class WeatherData(BaseModel):
@@ -40,8 +45,8 @@ class WeatherData(BaseModel):
 
 
 # targeting the endpoint our tipscard component talks to on mount
-@app.post("/api/recommend")
-def recommendTips(data:WeatherData):
+@router.post("/api/recommend")
+async def recommendTips(data:WeatherData):
 
 # prompt to generate tips
     prompt = f""" 
