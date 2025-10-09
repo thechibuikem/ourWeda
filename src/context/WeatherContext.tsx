@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState, type ReactNode } from "react";
 import { getWeather } from "../api/weatherApi";
 
-const RECOMMEND_API_URL  = import.meta.env. RECOMMEND_API_URL; //endpoint I want to communicate to using my fetch request
+const RECOMMEND_API_URL = import.meta.env.RECOMMEND_API_URL; //endpoint I want to communicate to using my fetch request
 
 // creating interface for backend data
 interface backendData {
