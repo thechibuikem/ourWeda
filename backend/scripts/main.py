@@ -13,8 +13,8 @@ app.add_middleware(
     allow_headers=["*"])
 
 
-# Get path relative to this file
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DIST_PATH = os.path.join(BASE_DIR, "..", "dist")
+# # Get path relative to this file
+# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# DIST_PATH = os.path.join(BASE_DIR, "..", "dist")
 
-app.mount("/", StaticFiles(directory=DIST_PATH, html=True), name="Static")
+# app.mount("/", StaticFiles(directory=DIST_PATH, html=True), name="Static")
