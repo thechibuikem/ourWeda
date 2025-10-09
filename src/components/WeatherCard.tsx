@@ -1,6 +1,7 @@
 import { useContext, type FC } from "react";
 import { weatherContext } from "../context/WeatherContext";
 import DigitalClock from "./Date+Time+Location";
+import Preloader from "./preloader";
 
 // the main weather card functional component that gets exported to the screen
 const WeatherCard: FC = () => {
@@ -15,22 +16,21 @@ const WeatherCard: FC = () => {
 
   // the main xml that's being returned on the weather card
   return (
-    <div className="w-full h-full flex sm:flex-row flex-col sm:justify-center  justify-between bg-green-800 rounded-xl text-white gap-y-8 p-4  hover:-translate-y-1 transition-transform cursor-pointer caret-[#ffffff00]">
+    <div className="w-full h-full flex sm:flex-row flex-ol sm:justify-center  justify-between bg-green-800 rounded-xl text-white gap-y-8 p-4  hover:-translate-y-1 transition-transform cursor-pointer caret-[#ffffff00]">
       {/* combination of weather icon + definition */}
-
-      <figure className="flex flex-row sm:flex-col sm:justify-center justify-around items-center w-full mr-4">
+      <figure className="flex flex-col sm:flex-row sm:justify-center justify-around items-center w-full mr-4">
         {/* conditional rendering of cloud  */}
         {icon ? (
           <img
             src={`https://openweathermap.org/img/wn/${icon}@4x.png`}
-            className="-ml-8 sm:ml-0"
+            className="-ml-2 sm:ml-0"
             alt="cloud showing the current weather condition"
           />
         ) : (
-          <div className="w-[4rem] md:w-[6rem] animate-pulse duration-150 rounded-sm bg-[#00000076] aspect-square"></div>
+        <Preloader width={"4rem"}/>
         )}
-        <h2 className="header-font text-4xl text-[#ffffff9f] text- capitalize">
-          {weather || "loading"}
+        <h2 className="header-font md:text-4xl text-xl text-[#ffffff9f] text- capitalize">
+          {weather || ""}
         </h2>
       </figure>
       {/* DateCard*/}

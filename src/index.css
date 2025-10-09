@@ -1,7 +1,4 @@
 @import "tailwindcss";
-.font{
-  font-family: "Poppins";
-}
 /* scrollbar irself */
 .tips-wrapper::-webkit-scrollbar{
   width: 5px;  
@@ -12,9 +9,9 @@
 .tips-wrapper::-webkit-scrollbar-thumb {
   background: #012205ca;  
 }
-
 body{
-  font-family: "Poppins";
+  font-family: "Open Sans","Poppins", sans-serif;
+  min-height: 100vh;
 }
 body::-webkit-scrollbar{
    display:none
