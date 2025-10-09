@@ -1,8 +1,6 @@
 import os
 from fastapi import FastAPI
-from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 from generateTips import router as tips_router
 app = FastAPI() #creating a fast api instance
 
