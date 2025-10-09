@@ -1,8 +1,6 @@
 import { createContext, useEffect, useState, type ReactNode } from "react";
 import { getWeather } from "../api/weatherApi";
 
-const RECOMMEND_API_URL = import.meta.env.RECOMMEND_API_URL; //endpoint I want to communicate to using my fetch request
-
 // creating interface for backend data
 interface backendData {
   tips: string[];
@@ -54,7 +52,7 @@ export const WeatherProvider = ({ children }: { children: ReactNode }) => {
         setLoading(false); // terminate loading
 
         // sending weather details to our python backend
-        const res = await fetch(RECOMMEND_API_URL, {
+        const res = await fetch("https://ourweda.onrender.com/api/recommend", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
