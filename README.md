@@ -1,10 +1,10 @@
-# OurWeather
+# OurWeda
 
 ```markdown
 
 ## Description
 
-**OurWeather** is a real-time weather app that helps users track current weather conditions and get actionable tips to help save the ozone layer and reduce global warming. It fetches weather data using the OpenWeather API, communicates with a FastAPI backend, and interacts with a Gemini 2 AI model to generate custom environmental tips.
+**OurWeda** is a real-time weather app that helps users track current weather conditions and get actionable tips to help save the ozone layer and reduce global warming. It fetches weather data using the OpenWeather API, communicates with a FastAPI backend, and interacts with a Gemini 2 AI model to generate custom environmental tips.
 
 ---
 
