@@ -76,7 +76,9 @@ Create a `.env` file in both frontend and backend directories and add:
 ```
 
 OPENWEATHER_API_KEY=your_api_key
+
 GEMINI2_CLIENT_KEY=your_gemini2_key
+
 VITE_OPEN_WEATHER_BASE_URL = https://api.openweathermap.org/data/2.5/weather?
 
 #Kindly contact chukwuemekadavid2007@gmail.com for api keys
