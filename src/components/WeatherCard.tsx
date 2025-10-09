@@ -18,7 +18,7 @@ const WeatherCard: FC = () => {
   return (
     <div className="w-full h-full flex sm:flex-row flex-ol sm:justify-center  justify-between bg-green-800 rounded-xl text-white gap-y-8 p-4  hover:-translate-y-1 transition-transform cursor-pointer caret-[#ffffff00]">
       {/* combination of weather icon + definition */}
-      <figure className="flex flex-col sm:flex-row sm:justify-center justify-around items-center w-full mr-4">
+      <figure className="flex flex-col sm:justify-center justify-around items-center w-full mr-4">
         {/* conditional rendering of cloud  */}
         {icon ? (
           <img
