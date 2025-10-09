@@ -13,6 +13,13 @@
   background: #012205ca;  
 }
 
+body{
+  font-family: "Poppins";
+}
+body::-webkit-scrollbar{
+   display:none
+}
+ 
 .tips-wrapper::-webkit-scrollbar-track{
   background-color: #ffffff30
 }
