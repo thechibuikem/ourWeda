@@ -45,9 +45,9 @@ const { city, country, setCity, setCountry } = context;
       className="flex flex-col sm:items-center justify-center bg-green-600
    shadow-lg w-full p-4 text-right gap-y-4 rounded-sm hover:-translate-y-1 transition-transform"
     >
-      <h3 className="uppercase md:text-3xl text-2xl text-[#ffffffbf]">{date}</h3>
+      <h3 className="uppercase md:text-2xl text-2xl text-[#ffffffbf]">{date}</h3>
       <h1 className="md:text-8xl text-7xl -mt-4 text-[#ffffffe1]">{time}</h1>
-      <h3 className="uppercase md:text-3xl text-2xl text-[#ffffffbf]">
+      <h3 className="uppercase md:text-2xl text-2xl text-[#ffffffbf]">
         {city} {country}
       </h3>
     </figure>

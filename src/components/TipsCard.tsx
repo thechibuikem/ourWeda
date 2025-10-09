@@ -24,10 +24,10 @@ if (isLoading)return
 
 // where our jsx is returned in
   return (
-    <section className="w-full min:h-[40vh] sm:min-h-[15vh] h-full rounded-sm shadow-md bg-green-600 cursor-arrow hover:-translate-y-1 transition-transform p-4 overflow-y-scroll md:overflow-hidden tips-wrapper">
+    <section className="w-full min:h-[40vh] sm:min-h-[15vh] h-full rounded-sm shadow-md bg-green-600 cursor-arrow hover:-translate-y-1 transition-transform p-4 overflow-y-scroll md:overflow-hidden tips-wrapper flex flex-col gap-y-4">
       {/* generating tips from returned tips from backend  */}
       {tips.length !== 0 ? (
-        tips.map((tip, index) => <p key={index} className="text-white text-md sm:text-xl mb-1 sm:mb-2">{tip}</p>)
+        tips.map((tip, index) => <p key={index} className="text-white text-md leading-tight">{tip}</p>)
       ) : (
         <h1 className="text-white text-2xl text-center mt-12 animate-pulse">
           Backend not working
@@ -41,8 +41,8 @@ const TipsCard: FC = () => {
   return (
     <section className="w-full h-full bg-green-800 rounded-xl flex flex-col md:gap-y-8 gap-y-4 items-center pt-4 md:pt-8 md:pb-4 md:px-4 px-4 pb-4 sm:pb-4  shadow-md hover:shadow-sm cursor-pointer hover:-translate-y-1 transition-transform ">
       {/* the header of the tips section */}
-      <h1 className="md:text-[2rem] text-neutral-100 text-2xl header-font">
-        Tips4AChange
+      <h1 className="md:text-4xl text-neutral-100 text-2xl header-font">
+        Tips
       </h1>
       {/* the header of the tips section */}
       <MainTips />
