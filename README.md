@@ -80,9 +80,9 @@ GEMINI2_CLIENT_KEY=your_gemini2_key
 
 VITE_OPEN_WEATHER_BASE_URL = https://api.openweathermap.org/data/2.5/weather?
 
-#Kindly contact chukwuemekadavid2007@gmail.com for api keys
-
 ```
+#Kindly contact engineer chukwuemekadavid2007@gmail.com for api keys
+
 
 ---
 
