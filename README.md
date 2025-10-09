@@ -1,69 +1,114 @@
-# React + TypeScript + Vite
+```markdown
+# OurWeather
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+**OurWeather** is a real-time weather app that helps users track current weather conditions and get actionable tips to help save the ozone layer and reduce global warming. It fetches weather data using the OpenWeather API, communicates with a FastAPI backend, and interacts with a Gemini 2 AI model to generate custom environmental tips.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend:** React, Tailwind CSS, TypeScript
+- **Backend:** Python, FastAPI
+- **AI:** Gemini 2 Model (via Gemini 2 client)
+- **Weather Data Source:** OpenWeather API
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- View live weather information based on your location
+- Receive instant, AI-generated tips to help protect the environment
+- Fast, modern interface built with React and Tailwind CSS
+- Prompts and suggestions tailored using Gemini 2 model based on current weather
+- Tips are practical, categorized as "do" and "do not" actions
+
+---
+
+## Installation
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) & npm (for frontend)
+- [Python 3.8+](https://www.python.org/) (for backend)
+- OpenWeather API key
+- Gemini 2 Model credentials/client setup
+
+### Frontend Setup
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+# Clone the repository
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+git clone https://github.com/yourusername/ourweather.git
+cd ourweather
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Install dependencies
+
+npm install
+
+# Start the frontend
+
+npm run dev
+
+```
+
+### Backend Setup
+
+```
+
+cd backend
+
+# (Optional: set up a virtual environment)
+
+pip install -r requirements.txt
+
+# Start the FastAPI server
+
+uvicorn main:app --reload
+
+```
+
+### Environment Variables
+
+Create a `.env` file in both frontend and backend directories and add:
+```
+
+OPENWEATHER_API_KEY=your_api_key
+GEMINI2_CLIENT_KEY=your_gemini2_key
+VITE_OPEN_WEATHER_BASE_URL = https://api.openweathermap.org/data/2.5/weather?
+
+#Kindly contact chukwuemekadavid2007@gmail.com for api keys
+
+```
+
+---
+
+## Usage
+
+1. Open the application in your browser.
+2. Enter your location or allow location access.
+3. View the current weather and read AI-generated tips right away.
+4. Try suggested actionable items to help the planet!
+
+---
+
+## Contributing
+
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for info on how to help improve this project.
+
+---
+
+## License
+
+[MIT](LICENSE)
+
+---
+
+## Acknowledgments
+
+- [OpenWeather API](https://openweathermap.org/)
+- [Google Gemini 2](https://ai.google)
+- All contributors
+
 ```
