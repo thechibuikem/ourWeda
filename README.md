@@ -73,7 +73,6 @@ uvicorn main:app --reload
 ### Environment Variables
 
 Create a `.env` file in both frontend and backend directories and add:
-```
 
 OPENWEATHER_API_KEY=your_api_key
 
