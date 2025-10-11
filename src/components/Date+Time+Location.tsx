@@ -41,7 +41,7 @@ const { city, country, setCity, setCountry } = context;
   // the jsx part of my code
   return (
     <figure
-      className="flex flex-col sm:items-center justify-center bg-green-600
+      className="flex flex-col sm:items-center justify-center bg-green-600/30 border-green-600/20 backdrop-blur-lg
    shadow-lg w-full p-4 text-right gap-y-4 rounded-sm hover:-translate-y-1 transition-transform"
     >
       <h3 className="uppercase md:text-2xl text-xl text-[#ffffffbf]">{date}</h3>

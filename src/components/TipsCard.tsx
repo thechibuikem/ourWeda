@@ -33,7 +33,7 @@ const MainTips: FC = () => {
 
   // where our jsx is returned in
   return (
-    <section className="w-full min:h-[60vh] sm:min-h-[15vh] h-full rounded-sm shadow-md bg-green-600 cursor-arrow hover:-translate-y-1 transition-transform p-4 overflow-y-scroll md:overflow-hidden tips-wrapper flex flex-col gap-y-4">
+    <section className="w-full min:h-[60vh] sm:min-h-[15vh] h-full rounded-sm shadow-md bg-green-600/30 border-green-600/20 backdrop-blur-lg cursor-arrow hover:-translate-y-1 transition-transform p-4 overflow-y-scroll md:overflow-hidden tips-wrapper flex flex-col gap-y-4">
       {/* generating tips from returned tips from backend  */}
       {tips.length !== 0 ? (
         tips.map((tip, index) => (
@@ -49,7 +49,7 @@ const MainTips: FC = () => {
 {/* label to tell if tips are ai generated or not */}
   
   {(recommendations.length<1)?
-  (<div className="w-full flex justify-center text-[#18181851] animate-pulse">Fallback Tips</div>):(<div className="w-full flex justify-center text-[#32323251]">Ai Gen Tips</div>)
+  (<div className="w-full flex justify-center text-[#18181830] animate-pulse">Fallback Tips</div>):(<div className="w-full flex justify-center text-[#18181830]">Ai Gen Tips</div>)
   }
 
     </section>

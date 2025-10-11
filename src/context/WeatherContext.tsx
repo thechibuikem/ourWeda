@@ -51,6 +51,8 @@ export const WeatherProvider = ({ children }: { children: ReactNode }) => {
         setTemperature(data.temperature);
         setLoading(false); // terminate loading
 
+        console.log(data)
+
         // sending weather details to our python backend
         const res = await fetch("https://ourweda.onrender.com/api/recommend", {
           method: "POST",
