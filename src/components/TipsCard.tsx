@@ -46,6 +46,12 @@ const MainTips: FC = () => {
           <Preloader width={"4rem"} />
         </div>
       )}
+{/* label to tell if tips are ai generated or not */}
+  
+  {(recommendations.length<1)?
+  (<div className="w-full flex justify-center text-[#18181851] animate-pulse">Fallback Tips</div>):(<div className="w-full flex justify-center text-[#32323251]">Ai Gen Tips</div>)
+  }
+
     </section>
   );
 };
