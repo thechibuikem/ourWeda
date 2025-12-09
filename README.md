@@ -88,13 +88,7 @@ VITE_OPEN_WEATHER_BASE_URL = https://api.openweathermap.org/data/2.5/weather?
 1. Open the application in your browser.
 2. Enter your location or allow location access.
 3. View the current weather and read AI-generated tips right away.
-4. Try suggested actionable items to help the planet!
-
----
-
-## Contributing
-
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for info on how to help improve this project.
+4. Try suggested actionable items to help the planet 🌎!
 
 ---
 
@@ -108,4 +102,3 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for info
 
 - [OpenWeather API](https://openweathermap.org/)
 - [Google Gemini 2](https://ai.google)
-
