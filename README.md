@@ -35,19 +35,19 @@
 - Gemini 2 Model credentials/client setup
 
 ### Frontend Setup
-```
 
 # Clone the repository
+```
 
 git clone https://github.com/yourusername/ourweather.git
 cd ourweather
-
+```
 # Install dependencies
-
+```
 npm install
-
+```
 # Start the frontend
-
+```
 npm run dev
 
 ```
@@ -57,19 +57,19 @@ npm run dev
 ```
 
 cd backend
-
+```
 # (Optional: set up a virtual environment)
-
+```
 pip install -r requirements.txt
-
+```
 # Start the FastAPI server
-
+```
 uvicorn main:app --reload
 
 ```
 
 ### Environment Variables
-
+```
 Create a `.env` file in both frontend and backend directories and add:
 
 OPENWEATHER_API_KEY=your_api_key
