@@ -34,41 +34,40 @@
 - OpenWeather API key
 - Gemini 2 Model credentials/client setup
 
-### Frontend Setup
+## Frontend Setup
 
-# Clone the repository
+### Clone the repository
 ```
-
 git clone https://github.com/yourusername/ourweather.git
 cd ourweather
 ```
-# Install dependencies
+### Install dependencies
 ```
 npm install
 ```
-# Start the frontend
+### Start the frontend
 ```
 npm run dev
 
 ```
 
-### Backend Setup
+## Backend Setup
 
 ```
 
 cd backend
 ```
-# (Optional: set up a virtual environment)
+### (Optional: set up a virtual environment)
 ```
 pip install -r requirements.txt
 ```
-# Start the FastAPI server
+### Start the FastAPI server
 ```
 uvicorn main:app --reload
 
 ```
 
-### Environment Variables
+## Environment Variables
 ```
 Create a `.env` file in both frontend and backend directories and add:
 
@@ -79,7 +78,7 @@ GEMINI2_CLIENT_KEY=your_gemini2_key
 VITE_OPEN_WEATHER_BASE_URL = https://api.openweathermap.org/data/2.5/weather?
 
 ```
-#Kindly contact engineer chukwuemekadavid2007@gmail.com for api keys
+## Kindly contact engineer chukwuemekadavid2007@gmail.com for api keys
 
 
 ---
@@ -109,6 +108,4 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for info
 
 - [OpenWeather API](https://openweathermap.org/)
 - [Google Gemini 2](https://ai.google)
-- All contributors
 
-```
