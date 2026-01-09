@@ -1,12 +1,52 @@
-# OurWeda
+<!-- header -->
 
-## Description
+<!-- navbar -->
+<p align="center">
+  <a href="#">Description</a> •
+  <a href="#features">Features</a> •
+  <a href="#installation">Installation</a> •
+  <a href="docs/overview.md">Docs</a> •
+  <a href="#license">License</a> •
+  <a href="https://www.linkedin.com/in/david-chukwuemeka-870724289/">Linked in</a>
+</p>
 
-**OurWeda** is a real-time weather app that helps users track current weather conditions and get actionable tips to help save the ozone layer and reduce global warming. It fetches weather data using the OpenWeather API, communicates with a FastAPI backend, and interacts with a Gemini 2 AI model to generate custom environmental tips.
+
+<p align="center">
+  <img src="./public/ourWedaBanner.png" alt="ourWeda Banner" width="100%" />
+</p>
+
+
+<p align="center">
+ <h1 align='center'> An AI-Powered Environmental Assistant </h1>
+
+<br>
+ 
+ <!-- badges for license and status of project -->
+<p align="center">
+  <a href="https://creativecommons.org/licenses/by-nc/4.0/">
+    <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License: MIT">
+  </a>
+  <img src="https://img.shields.io/badge/Status-Completed-green?style=for-the-badge" alt="Project Status">
+</p>
+
+<div style="display: flex; justify-content: center; gap: 10px;">
+  <img src="https://img.shields.io/badge/SDG 13-Climate Action-green?style=for-the-badge" alt="SDG 13">
+  <img src="https://img.shields.io/badge/LLM INTEGRATION-GEMINI 2-orange?style=for-the-badge" alt="Gemini 2">
+</div>
+
+<br>
+<br>
+
+# Description
+
+**OurWeda** is an AI-Powered Environmental Assistant that helps users track current weather conditions and get actionable tips to help save the ozone layer and reduce global warming. It fetches weather data using the OpenWeather API, communicates with a FastAPI backend, and interacts with a Gemini 2 AI model to generate custom environmental tips.
 
 ---
 
-## Tech Stack
+<br>
+<br>
+
+# Tech Stack
 
 - **Frontend:** React, Tailwind CSS, TypeScript
 - **Backend:** Python, FastAPI
@@ -15,7 +55,41 @@
 
 ---
 
-## Features
+
+<br>
+<br>
+
+
+# Demo
+
+**Check out Kronos in action:**
+
+<br>
+
+  ![Demo](./public/demo.gif)
+
+
+
+<br>
+<br>
+
+# LEVEL 0 DFD
+
+ ![Level 0 DFD](./public/level0dfd.png)
+
+
+<br>
+<br>
+
+
+# LEVEL 1 DFD
+
+ ![Level 1 DFD](./public/level1dfd.png)
+
+<br>
+<br>
+
+# Features
 
 - View live weather information based on your location
 - Receive instant, AI-generated tips to help protect the environment
@@ -24,15 +98,24 @@
 - Tips are practical, categorized as "do" and "do not" actions
 
 ---
+<br>
+<br>
 
-## Installation
 
-### Prerequisites
+# Installation
+
+<br>
+
+
+## Prerequisites
 
 - [Node.js](https://nodejs.org/) & npm (for frontend)
 - [Python 3.8+](https://www.python.org/) (for backend)
 - OpenWeather API key
 - Gemini 2 Model credentials/client setup
+
+<br>
+
 
 ## Frontend Setup
 
@@ -50,6 +133,7 @@ npm install
 npm run dev
 
 ```
+<br>
 
 ## Backend Setup
 
@@ -83,7 +167,7 @@ VITE_OPEN_WEATHER_BASE_URL = https://api.openweathermap.org/data/2.5/weather?
 
 ---
 
-## Usage
+# Usage
 
 1. Open the application in your browser.
 2. Enter your location or allow location access.
@@ -92,7 +176,7 @@ VITE_OPEN_WEATHER_BASE_URL = https://api.openweathermap.org/data/2.5/weather?
 
 ---
 
-## License
+# License
 
 [MIT](LICENSE)
 
