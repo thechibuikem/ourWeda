@@ -29,7 +29,7 @@
   <img src="https://img.shields.io/badge/Status-Completed-green?style=for-the-badge" alt="Project Status">
 </p>
 
-<div style="display: flex; justify-content: center; gap: 10px;">
+<div align="center">
   <img src="https://img.shields.io/badge/SDG 13-Climate Action-green?style=for-the-badge" alt="SDG 13">
   <img src="https://img.shields.io/badge/LLM INTEGRATION-GEMINI 2-orange?style=for-the-badge" alt="Gemini 2">
 </div>
